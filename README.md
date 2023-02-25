@@ -1,6 +1,6 @@
 
 
-# Is RNG Xiaohu the "Tiger King of the Spring" in LPL? ":thinking:"
+# Is RNG Xiaohu the "Tiger King of the Spring" in LPL? :thinking:
 ![cat GIF](https://media.tenor.com/Jh6tYjm6dOAAAAAC/xiaohu-rng-lpl.gif)
 
 
