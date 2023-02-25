@@ -6,7 +6,7 @@
 
 **Name(s)**: Runze Wang, Xuecheng Xu
 
-fig.write_html(‘../league-match-analysis/assets/matches-per-year.html’)
+<iframe src="assets/thefirstfig.html" width=800 height=600 frameBorder=0></iframe>
 
 
 # Introduction
