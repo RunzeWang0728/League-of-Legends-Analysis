@@ -1,6 +1,6 @@
 
 
-# Is RNG Xiaohu the "Tiger King of the Spring" in LPL? :thinking:
+# Is RNG Xiaohu the "Tiger King of the Spring" in LPL? &#x1F914;
 ![cat GIF](https://media.tenor.com/Jh6tYjm6dOAAAAAC/xiaohu-rng-lpl.gif)
 
 
@@ -19,7 +19,7 @@ In this League of Legends Analysis, we would testify this claim:
 
 ***Is RNG Xiaohu the "Tiger King of the Spring" in LPL?*** 
 
-Is this just a saying or it is a fact supported by data? :thinking:
+Is this just a saying or it is a fact supported by data? &#x1F914;
 ## Approach
 
 
