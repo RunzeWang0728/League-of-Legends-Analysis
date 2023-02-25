@@ -6,8 +6,6 @@
 
 **Name(s)**: Runze Wang, Xuecheng Xu
 
-<iframe src="assets/thefirstfig.html" width=800 height=600 frameBorder=0></iframe>
-
 
 # Introduction
 ## Background Information
@@ -165,7 +163,7 @@ In order to analyze Xiaohu's performance more conveniently and clearly, we extra
 **earned gpm**: Gold gained per minute of the game\
 **dpm**: The damage caused to the enemy per minute of the game
 
-Then, we narrow the data by the column we need, including in Spring and Summer Split, playername, position, side, champion, gold per miniute(earned gpm), damage per miniute (dpm)
+Then, we narrow the data by the column we need, including in Spring and Summer Split, playername, position, side, champion, gold per miniute(earned gpm), damage per miniute (dpm).
 
 
 
@@ -438,7 +436,7 @@ Side is also a variable that needs to be count. When different champions are on 
 
 We will separate the data of Xiaohu from other LPL mid laners. By comparing the average DPG of different heroes used by Xiaohu on different sides with other LPL mid laners to understand Xiaohu's performance in each game.
 
-Note: the average DPG of different champion and side data is in the columns called "dpm_per_gpm_avg"
+Note: the average DPG of different champion and side data is in the columns called "dpm_per_gpm_avg".
 
 Here is the **DPG** for Xiaohu!
 
@@ -800,7 +798,9 @@ We merge the dataframes of other players with Xiaohu's dataframe to easily and c
 
 # Assessment of Missingness
 
-In order to determine whether the missing value of Xiaohu is independent under different side and different champion selections, we need to use permutation and TVD to distinguish. By creating a new column, "xiaohu_missing", it indicates whether Xiaohu's data is missing compared to other players in this row. Finally, observe the difference between the two distribution by creating a pivot table and calculating TVD. Choosing the variable 'split' as the standard to distinguish if the missing is dependent or independent.
+The League of Legends game data we use includes the game data of any game in LPL. Also, there is no data missingness in the initial data we used. Therefore, the missingness of data is not related to the collection of data itself. The data missingness in the above table comes from Xiaohu's champion selection and the side he is on. The missingness come from the champion he did not choose when he is in a certain split and a certain side, which is a random process. Hence, we recognize the missingness is **Missing at Random(MAR)** or **Missing Completely at Random(MCAR)** instead of **Not Missing at Random(NMAR)**.
+
+In order to determine whether the missing value of Xiaohu is independent under different side and different champion selections so that we can measure the missingness is **Missing at Random(MAR)** or **Missing Completely at Random(MCAR)**, we need to use permutation and TVD to distinguish. By creating a new column, "xiaohu_missing", it indicates whether Xiaohu's data is missing compared to other players in this row. Finally, observe the difference between the two distribution by creating a pivot table and calculating TVD. Choosing the variable 'split' as the standard to distinguish if the missing is dependent or independent.
 
 (Look at the distribution of coli when colx is missing and look at the distribution of coli when colx is not missing. Comparing null and non-null 'xiaohu_dpm_per_gpm_avg' distributions for 'split')
 
@@ -905,7 +905,7 @@ Use the permutation method to shuffle the values in the split, and then use mult
 
 **Null hypothesis**: the distribution of 'split' when xiaohu data is missing is the same as the distribution of 'split' when xiaohu data under the change of the split value is not missing.\
 **Alternative hypothesis**: the distribution of 'split' when xiaohu data is missing is different to the distribution of 'split' when xiaohu data under the change of the split value is not missing.\
-**Significant level**: α = 0.05
+**Significant level**: α = 0.05.
 
 <iframe src="assets/tvdg.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -914,7 +914,7 @@ The p_value create by observed TVD and empirical TVD, the 'split' distribution d
 
 ### Imputation
 
-As we have been prove that the missingness of Xiaohu's data are Missing Completely at Random(MCAR). Hence, we can impute the data by probabilistic imputation, which randomly select the Xiaohu's data that are not missing and impute them into the missing rows in the column. Moreover, we are comparing the Xiaohu's performance gap between Spring Split and Summer Split. The imputation process need to seperate them as 2 different part.
+As we have been prove that the missingness of Xiaohu's data are Missing Completely at Random(MCAR). Hence, we can impute the data by **probabilistic imputation**, which randomly select the Xiaohu's data that are not missing and impute them into the missing rows in the column. Moreover, we are comparing the Xiaohu's performance gap between Spring Split and Summer Split. The imputation process need to seperate them as 2 different part.
 
 #### Spring Data
 <div>
@@ -1057,9 +1057,11 @@ Finally we simulate the empirical result by randomly select the data from Xiaohu
 
 (the **p value** is equal to 0.50155)
 
-The p value generate by the test statistic and the empirical distribution are close to 0.5, which is larger than the significant level, α = 0.05. We fail to reject the null hypothesis which states that Xiaohu have a better performnace in Spring split than Summer split according to the gap between his DPG with and other players' DPG in average. Hence we can't state that Xiaohu have a better performance in Spring Split than Summer Split
+The p value generate by the test statistic and the empirical distribution are close to 0.5, which is larger than the significant level, α = 0.05. We fail to reject the null hypothesis which states that Xiaohu have a better performnace in Spring split than Summer split according to the gap between his DPG with and other players' DPG in average. Hence we can't state that Xiaohu have a better performance in Spring Split than Summer Split.
 
+### The justification of the test statistic
 
+The test statistic we choose to doing the camprison between Xiaohu's performance in Spring Split and Summer Split is called the average DPG in each situation. The situation here is seperate by the side he is on and the champion he choose in one game; The DPG come from the ratio of damage he cause to the opponent per miniutes to the gold he earn per miniutes, which can showcase his performance of transfering the resource he gain to the damage he cause. As we all konw, League of legend is a 5V5 game which means that the win or loose of the game are not depend on one player. Therefore, the win rate can only be used when we are measure the team performance. Moreover, although the KDA seems to be a nice choice for judge one players performance, as we mention above, different champion's mechanism may cause the advantage of get the kills or gain the assistent, which can't not illustrate the performance of one player. The 'gap' between Xiaohu and other players here is the mean of average DPG in different situation. The test statistic we made is the mean of the gap in Spring split minus the mean of the gap in Summer split, which can provide a more convinced result to see if Xiaohu is able to do a better performance or not in Spring Split.
 
 ## Thank you for reading through this analysis! We firmly believe that Xiaohu will prove himself even more in future tournaments. Royal Never Give Up!
 
